@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EPCST ILib</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <div id="home">
+      <div class="wrapper">
+        <div class="overlay"></div>
+        <nav class="epcst-navbar">
+          <!-- Navbar -->
+          <div class="epcst-navbar__wrapper --logged-in">
+            <div class="left-content">
+              <div class="logo">
+                <a href="homepage.html">
+                  <img
+                    src="img/eastwoods_logo.png"
+                    alt="eastwoods school logo"
+                  />
+                </a>
+              </div>
+              <div>
+                <h1>EPCST ILib</h1>
+                <p>
+                  Eastwoods Professional College of Science and Technology
+                  Integrated Library
+                </p>
+              </div>
+            </div>
+            <div class="right-content">
+              <ul class="list">
+                <li>
+                  <a class="" href="homepage.html">Home</a>
+                </li>
+                <li class="dashboard-item">
+                  <button class="dashboard-button active">
+                    <span class="dashboard-span">Dashboard</span>
+                    <svg
+                      class="dashboard-svg"
+                      width="14"
+                      height="8"
+                      viewBox="0 0 14 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 1.08331L6.83333 6.91665L12.6667 1.08331"
+                        stroke="#7A7A7A"
+                        stroke-width="1.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <ul class="dashboard-menu-home hidden">
+                    <li class="dashboard-menu-list">
+                      <a href="announcements.html" class="active"
+                        >Announcements</a
+                      >
+                    </li>
+                    <li class="dashboard-menu-list">
+                      <a href="mission-and-vission.html">Mission and Vission</a>
+                    </li>
+                    <li class="dashboard-menu-list">
+                      <a href="rules-and-regulations.html"
+                        >Rules and regulations</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="" href="catalog.html">Catalog</a></li>
+                <li>
+                  <a class="logout" href="index.html">
+                    <svg
+                      class="logout"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.193413 13.3733C0.201496 13.6609 0.267301 13.944 0.386919 14.2057C0.506536 14.4674 0.677527 14.7024 0.889736 14.8967C1.10194 15.0911 1.35104 15.2408 1.62224 15.337C1.89343 15.4331 2.18118 15.4738 2.46841 15.4566C4.26258 15.4666 6.05675 15.4566 7.85091 15.4566C7.96142 15.4566 8.0674 15.4127 8.14554 15.3346C8.22368 15.2565 8.26758 15.1505 8.26758 15.04C8.26758 14.9295 8.22368 14.8235 8.14554 14.7453C8.0674 14.6672 7.96142 14.6233 7.85091 14.6233C6.01758 14.6233 4.18425 14.65 2.35091 14.6233C1.42841 14.61 1.02675 13.9166 1.02675 13.0916L1.02675 2.7058C1.02031 2.44353 1.0941 2.18553 1.23825 1.96633C1.38241 1.74712 1.59005 1.57715 1.83341 1.47914C2.12112 1.40062 2.42049 1.37382 2.71758 1.39997L7.85091 1.39997C7.96142 1.39997 8.0674 1.35607 8.14554 1.27793C8.22368 1.19979 8.26758 1.09381 8.26758 0.983304C8.26758 0.872798 8.22368 0.766817 8.14554 0.688677C8.0674 0.610537 7.96142 0.566638 7.85091 0.566638C5.99758 0.566638 4.13008 0.495805 2.27841 0.566638C1.99485 0.57381 1.71555 0.637303 1.45676 0.753425C1.19797 0.869546 0.964854 1.03598 0.770983 1.24303C0.577112 1.45008 0.426354 1.69363 0.327485 1.95949C0.228615 2.22535 0.183607 2.50822 0.19508 2.79164L0.193413 13.3733Z"
+                        fill="#7A7A7A"
+                      />
+                      <path
+                        d="M15.02 7.71912C15.0904 7.78739 15.1316 7.88028 15.135 7.97829C15.135 7.99079 15.135 8.00162 15.14 8.01412C15.145 8.02662 15.14 8.03662 15.135 8.04829C15.1317 8.14655 15.0905 8.23971 15.02 8.30829L11.9625 11.3658C11.8839 11.4417 11.7787 11.4837 11.6694 11.4827C11.5602 11.4818 11.4557 11.438 11.3784 11.3607C11.3012 11.2835 11.2574 11.179 11.2564 11.0697C11.2555 10.9605 11.2975 10.8552 11.3734 10.7766L13.7192 8.42995L4.76752 8.42995C4.65701 8.42995 4.55103 8.38605 4.47289 8.30791C4.39475 8.22977 4.35085 8.12379 4.35085 8.01329C4.35085 7.90278 4.39475 7.7968 4.47289 7.71866C4.55103 7.64052 4.65701 7.59662 4.76752 7.59662L13.7192 7.59662L11.3734 5.24995C11.2975 5.17137 11.2555 5.06612 11.2564 4.95687C11.2574 4.84762 11.3012 4.74312 11.3784 4.66586C11.4557 4.58861 11.5602 4.54479 11.6694 4.54384C11.7787 4.54289 11.8839 4.58489 11.9625 4.66079L15.02 7.71912Z"
+                        fill="#7A7A7A"
+                      />
+                    </svg>
+                    <span>Logout</span>
+                  </a>
+                </li>
+              </ul>
+              <button class="toggle-menu">
+                <img src="img/menu-burger.png" alt="hamburger menu icon" />
+              </button>
+              <div class="side-menu">
+                <button class="close-menu">
+                  <img src="img/cross.png" alt="cross icon" />
+                </button>
+                <ul class="mobile-ul">
+                  <li class="dashboard-list">
+                    <a href="homepage.html" class="active">Home</a>
+                  </li>
+                  <li class="dashboard-list">
+                    <button class="mobile-dashboard-btn">
+                      <span>Dashboard</span>
+                      <svg
+                        class="mobile-dashboard-svg"
+                        width="14"
+                        height="8"
+                        viewBox="0 0 14 8"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1.08331L6.83333 6.91665L12.6667 1.08331"
+                          stroke="#7A7A7A"
+                          stroke-width="1.4"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div class="mobile-dashboard-submenu">
+                      <ul>
+                        <li>
+                          <a href="announcements.html" class="active"
+                            >Announcements</a
+                          >
+                        </li>
+                        <li>
+                          <a href="mission-and-vission.html"
+                            >Mission and Vission</a
+                          >
+                        </li>
+                        <li>
+                          <a href="rules-and-regulations.html"
+                            >Rules and regulations</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="dashboard-list">
+                    <a href="catalog.html">Catalog</a>
+                  </li>
+                  <li class="dashboard-list">
+                    <a href="index.html">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="announcements-section">
+          <div class="section-title">
+            <h2>ANNOUNCEMENTS</h2>
+            <img src="img/megaphone.png" alt="megaphone icon" />
+          </div>
+          <div class="announcements__content">
+            <div class="library-hours">
+              <img src="img/pin.png" alt="pin icon" class="pin" />
+              <h3>Library Hours</h3>
+              <ul class="content">
+                <li>
+                  <p>Monday to Friday</p>
+                  <p>8:00 AM to 5:00 PM</p>
+                </li>
+                <li>
+                  <p>Saturday</p>
+                  <p>8:00 AM to 12:00 PM</p>
+                </li>
+              </ul>
+            </div>
+            <div class="events">
+              <img src="img/pin.png" alt="pin icon" class="pin" />
+              <h3>Events</h3>
+              <ul class="content">
+                <li>
+                  <p>
+                    Please kindly return the Books 1 week before the Inventory
+                    on July 11 to 21, 2023.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="announcements">
+              <img src="img/pin.png" alt="pin icon" class="pin" />
+              <h3>Announcements</h3>
+              <ul class="content">
+                <li>
+                  <div class="calendar">
+                    <div class="top">Monday</div>
+                    <div class="bottom">
+                      January <span class="date">23</span>
+                    </div>
+                  </div>
+                  <p>Senior HighSchool Digital Story telling</p>
+                </li>
+                <li>
+                  <div class="calendar">
+                    <div class="top">Monday</div>
+                    <div class="bottom">
+                      January <span class="date">23</span>
+                    </div>
+                  </div>
+                  <p>National Book Week</p>
+                </li>
+                <li>
+                  <div class="calendar">
+                    <div class="top">Monday</div>
+                    <div class="bottom">
+                      January <span class="date">23</span>
+                    </div>
+                  </div>
+                  <p>Library Arts & Craft</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

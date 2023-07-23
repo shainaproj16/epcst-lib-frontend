@@ -1,0 +1,161 @@
+.book-details {
+  margin-bottom: 100px;
+  .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $dark-color;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    column-gap: 15px;
+    margin-top: 30px;
+
+    .left {
+      display: flex;
+      align-items: center;
+      column-gap: 12px;
+
+      img {
+        width: 22px;
+        height: 22px;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+    }
+
+    .right {
+      color: $primary-color;
+      text-decoration: none;
+
+      p {
+        margin: 0;
+        margin-left: 8px;
+      }
+
+      img {
+        width: 15px;
+        height: 15px;
+      }
+
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__content {
+    .title {
+      margin-top: 30px;
+      p {
+        margin: 0;
+        color: $dark-color;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+      }
+    }
+
+    .info {
+      display: flex;
+      margin-top: 30px;
+
+      .left {
+        flex-grow: 1;
+
+        .info-item {
+          .label-text {
+            display: flex;
+            align-items: center;
+            column-gap: 12px;
+            margin-bottom: 6px;
+
+            h3 {
+              color: $gray-color;
+              font-size: 14px;
+              font-weight: 400;
+              letter-spacing: 1.5px;
+              margin: 0;
+            }
+          }
+        }
+
+        .info-item:not(:last-child) {
+          margin-bottom: 24px;
+        }
+
+        .authors {
+          p {
+            color: $dark-color;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+          }
+        }
+
+        .highlights {
+          ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+              display: flex;
+              align-items: center;
+              column-gap: 10px;
+              font-size: 15px;
+            }
+
+            li:not(:last-child) {
+              margin-bottom: 4px;
+            }
+          }
+        }
+      }
+
+      .right {
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .description {
+      margin-top: 30px;
+
+      h4 {
+        color: $gray-color;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+        margin: 0;
+        margin-bottom: 6px;
+      }
+
+      p {
+        margin: 0;
+        color: $dark-color;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  /* Media query for mobile devices */
+  @media (max-width: 767px) {
+    .main-content {
+      flex-direction: column;
+
+      .info {
+        flex-direction: column;
+        .right {
+          display: none;
+        }
+      }
+    }
+  }
+}

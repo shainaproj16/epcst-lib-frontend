@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EPCST ILib</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+      .hide {
+        display: none !important;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Side Menu -->
+      <div class="sidemenu active">
+        <a href="admin-dashboard.html" class="header">
+          <div class="logo">
+            <img src="img/eastwoods_logo.png" alt="eastwoods logo" />
+          </div>
+          <p>EPCST ILib</p>
+        </a>
+        <div class="side-nav">
+          <ul>
+            <li>
+              <a href="admin-dashboard.html" class="">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M13.0353 2.03474C13.6681 1.402 14.5613 1.14587 15.584 1.14587H17.4173C18.44 1.14587 19.3332 1.402 19.966 2.03474C20.5987 2.66748 20.8548 3.56073 20.8548 4.58337V6.41671C20.8548 7.43935 20.5987 8.33261 19.966 8.96534C19.3332 9.59808 18.44 9.85421 17.4173 9.85421H15.584C14.5613 9.85421 13.6681 9.59808 13.0353 8.96534C12.4026 8.33261 12.1465 7.43935 12.1465 6.41671V4.58337C12.1465 3.56073 12.4026 2.66748 13.0353 2.03474ZM14.0076 3.00701C13.7237 3.29094 13.5215 3.77268 13.5215 4.58337V6.41671C13.5215 7.2274 13.7237 7.70914 14.0076 7.99307C14.2915 8.277 14.7733 8.47921 15.584 8.47921H17.4173C18.228 8.47921 18.7098 8.277 18.9937 7.99307C19.2776 7.70914 19.4798 7.2274 19.4798 6.41671V4.58337C19.4798 3.77268 19.2776 3.29094 18.9937 3.00701C18.7098 2.72308 18.228 2.52087 17.4173 2.52087H15.584C14.7733 2.52087 14.2915 2.72308 14.0076 3.00701Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M2.03535 13.0347C2.66809 12.402 3.56134 12.1459 4.58398 12.1459H6.41732C7.43996 12.1459 8.33322 12.402 8.96595 13.0347C9.59869 13.6675 9.85482 14.5607 9.85482 15.5834V17.4167C9.85482 18.4393 9.59869 19.3326 8.96595 19.9653C8.33322 20.5981 7.43996 20.8542 6.41732 20.8542H4.58398C3.56134 20.8542 2.66809 20.5981 2.03535 19.9653C1.40261 19.3326 1.14648 18.4393 1.14648 17.4167V15.5834C1.14648 14.5607 1.40261 13.6675 2.03535 13.0347ZM3.00762 14.007C2.72369 14.2909 2.52148 14.7727 2.52148 15.5834V17.4167C2.52148 18.2274 2.72369 18.7091 3.00762 18.9931C3.29155 19.277 3.77329 19.4792 4.58398 19.4792H6.41732C7.22801 19.4792 7.70975 19.277 7.99368 18.9931C8.27761 18.7091 8.47982 18.2274 8.47982 17.4167V15.5834C8.47982 14.7727 8.27761 14.2909 7.99368 14.007C7.70975 13.7231 7.22801 13.5209 6.41732 13.5209H4.58398C3.77329 13.5209 3.29155 13.7231 3.00762 14.007Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5.50065 2.52087C3.8553 2.52087 2.52148 3.85469 2.52148 5.50004C2.52148 7.14539 3.8553 8.47921 5.50065 8.47921C7.146 8.47921 8.47982 7.14539 8.47982 5.50004C8.47982 3.85469 7.146 2.52087 5.50065 2.52087ZM1.14648 5.50004C1.14648 3.0953 3.09591 1.14587 5.50065 1.14587C7.90539 1.14587 9.85482 3.0953 9.85482 5.50004C9.85482 7.90478 7.90539 9.85421 5.50065 9.85421C3.09591 9.85421 1.14648 7.90478 1.14648 5.50004Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.5007 13.5209C14.8553 13.5209 13.5215 14.8547 13.5215 16.5C13.5215 18.1454 14.8553 19.4792 16.5007 19.4792C18.146 19.4792 19.4798 18.1454 19.4798 16.5C19.4798 14.8547 18.146 13.5209 16.5007 13.5209ZM12.1465 16.5C12.1465 14.0953 14.0959 12.1459 16.5007 12.1459C18.9054 12.1459 20.8548 14.0953 20.8548 16.5C20.8548 18.9048 18.9054 20.8542 16.5007 20.8542C14.0959 20.8542 12.1465 18.9048 12.1465 16.5Z"
+                    fill="white"
+                  />
+                </svg>
+                <span>Dashboard Management</span>
+              </a>
+            </li>
+            <li>
+              <a href="admin-catalog-management.html" class="">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M2.17644 6.24913C2.98807 5.28419 4.37958 4.8125 6.41737 4.8125H15.584C17.6218 4.8125 19.0133 5.28419 19.825 6.24913C20.6287 7.20469 20.7052 8.46006 20.5763 9.63061L19.8885 16.9674C19.7875 17.9098 19.551 18.943 18.7095 19.7117C17.8743 20.4748 16.5803 20.8542 14.6674 20.8542H7.33403C5.42109 20.8542 4.1271 20.4748 3.29189 19.7117C2.45045 18.943 2.21392 17.9098 2.11295 16.9674L2.11198 16.9583L1.42506 9.63063C1.29624 8.46008 1.37269 7.2047 2.17644 6.24913ZM3.22871 7.13421C2.79629 7.6483 2.67457 8.42076 2.79236 9.48522L2.79363 9.49665L3.4806 16.8254C3.57231 17.6773 3.76216 18.279 4.21931 18.6966C4.68347 19.1206 5.56198 19.4792 7.33403 19.4792H14.6674C16.4394 19.4792 17.3179 19.1206 17.7821 18.6966C18.2392 18.279 18.4291 17.6773 18.5208 16.8254L19.2089 9.48521C19.3267 8.42075 19.2051 7.6483 18.7727 7.13421C18.3468 6.62789 17.4604 6.1875 15.584 6.1875H6.41737C4.54098 6.1875 3.65458 6.62789 3.22871 7.13421Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8.06153 3.71289C8.02259 4.01116 8.02149 4.35012 8.02149 4.76671V5.50004C8.02149 5.87974 7.71368 6.18754 7.33399 6.18754C6.95429 6.18754 6.64649 5.87974 6.64649 5.50004L6.64649 4.74288C6.64646 4.35465 6.64644 3.9306 6.69811 3.53488C6.75164 3.12485 6.86635 2.68955 7.13509 2.30072C7.70043 1.48274 8.73604 1.14587 10.2673 1.14587H11.734C13.2653 1.14587 14.3009 1.48274 14.8662 2.30072C15.135 2.68955 15.2497 3.12485 15.3032 3.53488C15.3549 3.9306 15.3548 4.35465 15.3548 4.74289L15.3548 5.50004C15.3548 5.87974 15.047 6.18754 14.6673 6.18754C14.2876 6.18754 13.9798 5.87974 13.9798 5.50004V4.76671C13.9798 4.35012 13.9787 4.01116 13.9398 3.71289C13.9016 3.4208 13.833 3.22418 13.7351 3.08249C13.5671 2.83942 13.136 2.52087 11.734 2.52087H10.2673C8.86527 2.52087 8.43421 2.83942 8.26622 3.08249C8.16829 3.22418 8.09967 3.4208 8.06153 3.71289Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.85621 11.6882C9.85549 11.7537 9.85548 11.8283 9.85548 11.9167V12.8608C9.85548 13.1189 9.85773 13.3087 9.88014 13.4698C9.90169 13.6246 9.93591 13.7 9.96492 13.7409C9.99727 13.7865 10.1585 13.9792 11.0013 13.9792C11.8479 13.9792 12.0072 13.7847 12.0389 13.7395C12.0681 13.6978 12.1022 13.6213 12.1234 13.4646C12.1455 13.3017 12.1471 13.111 12.1471 12.8517V11.9167C12.1471 11.8283 12.1471 11.7537 12.1464 11.6882C12.081 11.6875 12.0064 11.6875 11.918 11.6875H10.0846C9.99623 11.6875 9.92164 11.6875 9.85621 11.6882ZM10.0545 10.3125C10.0646 10.3125 10.0746 10.3125 10.0846 10.3125H11.918C11.928 10.3125 11.938 10.3125 11.9481 10.3125C12.1508 10.3125 12.3562 10.3124 12.5238 10.331C12.6947 10.35 12.9785 10.4008 13.2062 10.6285C13.4339 10.8561 13.4846 11.1399 13.5036 11.3108C13.5222 11.4784 13.5222 11.6839 13.5221 11.8866C13.5221 11.8966 13.5221 11.9066 13.5221 11.9167V12.862C13.5222 13.1 13.5222 13.3817 13.486 13.649C13.4485 13.9263 13.3663 14.241 13.1652 14.5283C12.7362 15.1407 11.9789 15.3542 11.0013 15.3542C10.0291 15.3542 9.27369 15.1435 8.84312 14.536C8.64067 14.2504 8.55687 13.9367 8.51826 13.6593C8.48052 13.3881 8.48048 13.1024 8.48048 12.8608V11.9167C8.48048 11.9066 8.48048 11.8966 8.48047 11.8866C8.48043 11.6839 8.48038 11.4784 8.49901 11.3108C8.51799 11.1399 8.56875 10.8561 8.79643 10.6285C9.0241 10.4008 9.30791 10.35 9.47878 10.331C9.6464 10.3124 9.85182 10.3125 10.0545 10.3125Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.4026 9.67905C20.6259 9.98613 20.558 10.4161 20.2509 10.6394C18.0361 12.2502 15.5057 13.2083 12.92 13.5339C12.5432 13.5813 12.1994 13.3144 12.1519 12.9377C12.1045 12.5609 12.3714 12.2171 12.7482 12.1696C15.1124 11.8719 17.422 10.9967 19.4422 9.52742C19.7493 9.30409 20.1792 9.37198 20.4026 9.67905Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M1.83507 9.94257C2.04953 9.62923 2.47739 9.54908 2.79072 9.76354C4.76054 11.1118 6.98184 11.9244 9.24391 12.1776C9.62125 12.2199 9.89289 12.56 9.85064 12.9374C9.80839 13.3147 9.46825 13.5864 9.09091 13.5441C6.60464 13.2657 4.16928 12.3733 2.0141 10.8982C1.70077 10.6838 1.62061 10.2559 1.83507 9.94257Z"
+                    fill="white"
+                  />
+                </svg>
+                <span> Catalog Management</span>
+              </a>
+            </li>
+            <li>
+              <a href="admin-user-management.html" class="">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.39648 17.875C9.39648 17.4953 9.70429 17.1875 10.084 17.1875H19.2507C19.6303 17.1875 19.9382 17.4953 19.9382 17.875C19.9382 18.2547 19.6303 18.5625 19.2507 18.5625H10.084C9.70429 18.5625 9.39648 18.2547 9.39648 17.875Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.39648 11.4584C9.39648 11.0787 9.70429 10.7709 10.084 10.7709H19.2507C19.6303 10.7709 19.9382 11.0787 19.9382 11.4584C19.9382 11.8381 19.6303 12.1459 19.2507 12.1459H10.084C9.70429 12.1459 9.39648 11.8381 9.39648 11.4584Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.39648 5.04175C9.39648 4.66205 9.70429 4.35425 10.084 4.35425H19.2507C19.6303 4.35425 19.9382 4.66205 19.9382 5.04175C19.9382 5.42144 19.6303 5.72925 19.2507 5.72925H10.084C9.70429 5.72925 9.39648 5.42144 9.39648 5.04175Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.9028 2.72224C7.17129 2.99072 7.17129 3.42602 6.9028 3.69451L4.1528 6.44451C3.88432 6.713 3.44902 6.713 3.18053 6.44451L2.26386 5.52784C1.99538 5.25936 1.99538 4.82406 2.26386 4.55557C2.53235 4.28709 2.96765 4.28709 3.23614 4.55557L3.66667 4.9861L5.93053 2.72224C6.19902 2.45375 6.63432 2.45375 6.9028 2.72224Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.9028 9.13886C7.17129 9.40735 7.17129 9.84265 6.9028 10.1111L4.1528 12.8611C3.88432 13.1296 3.44902 13.1296 3.18053 12.8611L2.26386 11.9445C1.99538 11.676 1.99538 11.2407 2.26386 10.9722C2.53235 10.7037 2.96765 10.7037 3.23614 10.9722L3.66667 11.4027L5.93053 9.13886C6.19902 8.87038 6.63432 8.87038 6.9028 9.13886Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.9028 15.5556C7.17129 15.8241 7.17129 16.2594 6.9028 16.5279L4.1528 19.2779C3.88432 19.5464 3.44902 19.5464 3.18053 19.2779L2.26386 18.3612C1.99538 18.0927 1.99538 17.6574 2.26386 17.3889C2.53235 17.1205 2.96765 17.1205 3.23614 17.3889L3.66667 17.8195L5.93053 15.5556C6.19902 15.2871 6.63432 15.2871 6.9028 15.5556Z"
+                    fill="white"
+                  />
+                </svg>
+                <span>User Management</span>
+              </a>
+            </li>
+            <li>
+              <a href="admin-transactions-borrowed.html" class="active">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M11.0007 2.52087C6.32035 2.52087 2.52148 6.31974 2.52148 11C2.52148 15.6803 6.32035 19.4792 11.0007 19.4792C15.681 19.4792 19.4798 15.6803 19.4798 11C19.4798 6.31974 15.681 2.52087 11.0007 2.52087ZM1.14648 11C1.14648 5.56035 5.56096 1.14587 11.0007 1.14587C16.4403 1.14587 20.8548 5.56035 20.8548 11C20.8548 16.4397 16.4403 20.8542 11.0007 20.8542C5.56096 20.8542 1.14648 16.4397 1.14648 11Z"
+                    fill="white"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.6621 6.19666C11.0418 6.19666 11.3496 6.50446 11.3496 6.88416V10.6425C11.3496 10.7832 11.4034 10.9872 11.5229 11.1968C11.6424 11.4064 11.7905 11.5564 11.9109 11.6277L11.9128 11.6288L11.9128 11.6288L14.7544 13.3246C15.0805 13.5192 15.1871 13.9413 14.9925 14.2673C14.7979 14.5934 14.3758 14.6999 14.0498 14.5054L11.21 12.8106C11.2096 12.8104 11.2093 12.8102 11.209 12.81C10.8348 12.588 10.5341 12.2387 10.3284 11.878C10.1225 11.5169 9.97461 11.0792 9.97461 10.6425V6.88416C9.97461 6.50446 10.2824 6.19666 10.6621 6.19666Z"
+                    fill="white"
+                  />
+                </svg>
+                <span>Transaction</span>
+              </a>
+            </li>
+            <li>
+              <a href="admin-request-book.html">
+                <svg
+                  version="1.0"
+                  id="Layer_1"
+                  viewBox="0 0 64 64"
+                  enable-background="new 0 0 64 64"
+                  xml:space="preserve"
+                  fill="#ffffff"
+                  stroke="#ffffff"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g>
+                      <path
+                        fill="#ffffff"
+                        d="M24.008,32.038L9.541,27.904c-0.527-0.146-1.084,0.155-1.236,0.688c-0.151,0.53,0.156,1.084,0.688,1.236 l14.467,4.134C23.551,33.987,23.643,34,23.734,34c0.435,0,0.835-0.286,0.961-0.726C24.847,32.744,24.539,32.19,24.008,32.038z"
+                      ></path>
+                      <path
+                        fill="#ffffff"
+                        d="M24.008,39.038L9.541,34.905c-0.527-0.146-1.084,0.155-1.236,0.688c-0.151,0.531,0.156,1.084,0.688,1.236 l14.467,4.133C23.551,40.987,23.643,41,23.734,41c0.435,0,0.835-0.286,0.961-0.726C24.847,39.743,24.539,39.19,24.008,39.038z"
+                      ></path>
+                      <path
+                        fill="#ffffff"
+                        d="M24.008,25.038L9.541,20.904c-0.527-0.146-1.084,0.155-1.236,0.688c-0.151,0.53,0.156,1.084,0.688,1.236 l14.467,4.134C23.551,26.987,23.643,27,23.734,27c0.435,0,0.835-0.286,0.961-0.726C24.847,25.744,24.539,25.19,24.008,25.038z"
+                      ></path>
+                      <path
+                        fill="#ffffff"
+                        d="M24.008,18.038L9.541,13.904c-0.527-0.146-1.084,0.155-1.236,0.688c-0.151,0.53,0.156,1.084,0.688,1.236 l14.467,4.134C23.551,19.987,23.643,20,23.734,20c0.435,0,0.835-0.286,0.961-0.726C24.847,18.744,24.539,18.19,24.008,18.038z"
+                      ></path>
+                      <path
+                        fill="#ffffff"
+                        d="M39.963,33.962c0.092,0,0.184-0.013,0.275-0.038l14.467-4.134c0.531-0.152,0.839-0.706,0.688-1.236 c-0.152-0.532-0.708-0.832-1.236-0.688L39.689,32c-0.531,0.152-0.839,0.706-0.688,1.236C39.128,33.676,39.528,33.962,39.963,33.962 z"
+                      ></path>
+                      <path
+                        fill="#ffffff"
+                        d="M54.459,34.905l-14.467,4.133c-0.531,0.152-0.839,0.705-0.688,1.236C39.431,40.714,39.831,41,40.266,41 c0.092,0,0.184-0.013,0.275-0.038l14.467-4.133c0.531-0.152,0.839-0.705,0.688-1.236C55.543,35.061,54.987,34.761,54.459,34.905z"
+                      ></path>
+                      <path
+                        fill="#ffffff"
+                        d="M54.459,20.904l-14.467,4.134c-0.531,0.152-0.839,0.706-0.688,1.236C39.431,26.714,39.831,27,40.266,27 c0.092,0,0.184-0.013,0.275-0.038l14.467-4.134c0.531-0.152,0.839-0.706,0.688-1.236C55.543,21.06,54.987,20.758,54.459,20.904z"
+                      ></path>
+                      <path
+                        fill="#ffffff"
+                        d="M54.459,13.904l-14.467,4.134c-0.531,0.152-0.839,0.706-0.688,1.236C39.431,19.714,39.831,20,40.266,20 c0.092,0,0.184-0.013,0.275-0.038l14.467-4.134c0.531-0.152,0.839-0.706,0.688-1.236C55.543,14.06,54.987,13.76,54.459,13.904z"
+                      ></path>
+                      <path
+                        fill="#ffffff"
+                        d="M63.219,0.414c-0.354-0.271-0.784-0.413-1.221-0.413c-0.172,0-0.345,0.022-0.514,0.066L32,7.93L2.516,0.067 c-0.17-0.045-0.343-0.066-0.515-0.066c-0.437,0-0.866,0.142-1.22,0.413C0.289,0.793,0,1.379,0,2v49.999 c0,0.906,0.609,1.699,1.484,1.933l25.873,6.899C28.089,62.685,29.887,64,32,64s3.911-1.315,4.643-3.169l25.873-6.899 C63.391,53.698,64,52.905,64,51.999V2C64,1.379,63.711,0.793,63.219,0.414z M32,54c0.173,0,0.347-0.022,0.516-0.067L62,46.07v1.954 l-30,7.941L2,48.024V46.07l29.484,7.862C31.653,53.978,31.827,54,32,54z M1.998,2.001c0,0,0.001,0,0.003,0V2L31,9.733v42L2,44 L1.998,2.001z M34.979,59.205c-0.079,1.143-0.785,2.111-1.788,2.546l-0.676,0.181c-0.169,0.045-0.343,0.067-0.516,0.067 s-0.347-0.022-0.516-0.067l-0.676-0.181c-1.003-0.435-1.709-1.403-1.788-2.546L2,51.999v-1.906l29.744,7.874 C31.828,57.989,31.914,58,32,58s0.172-0.011,0.256-0.033L62,50.093v1.906L34.979,59.205z M33,51.733v-42L62,2v42L33,51.733z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <span>Request Book</span>
+              </a>
+            </li>
+            <li class="report">
+              <button class="report-btn">
+                <div class="left">
+                  <svg
+                    fill="#ffffff"
+                    height="200px"
+                    width="200px"
+                    version="1.1"
+                    id="Layer_1"
+                    viewBox="0 0 512 512"
+                    xml:space="preserve"
+                    stroke="#ffffff"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g>
+                        <g>
+                          <path
+                            d="M187.515,380.716h-85.179c-7.407,0-13.431,6.024-13.431,13.431v66.999c0,7.407,6.026,13.432,13.431,13.432h85.179 c7.407,0,13.431-6.025,13.431-13.432v-66.999C200.946,386.741,194.921,380.716,187.515,380.716z M182.975,456.607h-76.098v-57.918 h76.098V456.607z"
+                          ></path>
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M441.616,26.951h-0.235h-16.225V8.986c0-4.964-4.023-8.986-8.986-8.986c-4.963,0-8.986,4.022-8.986,8.986v17.965h-27.496 V8.986c0-4.964-4.023-8.986-8.986-8.986c-4.963,0-8.986,4.022-8.986,8.986v17.965h-27.496V8.986c0-4.964-4.023-8.986-8.986-8.986 c-4.963,0-8.986,4.022-8.986,8.986v17.965H288.75V8.986c0-4.964-4.023-8.986-8.986-8.986c-4.963,0-8.986,4.022-8.986,8.986v17.965 h-27.496V8.986c0-4.964-4.023-8.986-8.986-8.986s-8.986,4.022-8.986,8.986v17.965h-27.496V8.986c0-4.964-4.023-8.986-8.986-8.986 c-4.963,0-8.986,4.022-8.986,8.986v17.965h-27.496V8.986c0-4.964-4.023-8.986-8.986-8.986s-8.986,4.022-8.986,8.986v17.965 h-27.495V8.986c0-4.964-4.023-8.986-8.986-8.986s-8.986,4.022-8.986,8.986v17.965H69.813h-0.235 c-12.861,0-23.324,10.463-23.324,23.326v0.235v437.929v0.235c0,12.861,10.463,23.324,23.324,23.324h0.235h248.174h123.627 c12.861,0,23.326-10.462,23.326-23.324V365.048V146.169c0-4.963-4.023-8.986-8.986-8.986s-8.986,4.022-8.986,8.986v215.282 c-21.534,23.898-52.076,37.54-84.313,37.54l-0.767-0.011c-2.474-0.037-4.741,0.935-6.445,2.648 c-1.705,1.715-2.647,4.041-2.616,6.459l0.01,0.567c0.005,0.337,0.012,0.675,0.012,1.012c0,32.263-13.663,62.825-37.594,84.362 H69.813c-3.08,0-5.588-2.507-5.588-5.587V50.512c0-3.082,2.507-5.588,5.588-5.588h19.092v24.049c0,4.964,4.023,8.986,8.986,8.986 s8.986-4.022,8.986-8.986V44.923h27.496v24.049c0,4.964,4.023,8.986,8.986,8.986c4.963,0,8.986-4.022,8.986-8.986V44.923h27.495 v24.049c0,4.964,4.023,8.986,8.986,8.986c4.963,0,8.986-4.022,8.986-8.986V44.923h27.496v24.049c0,4.964,4.023,8.986,8.986,8.986 s8.986-4.022,8.986-8.986V44.923h27.496v24.049c0,4.964,4.023,8.986,8.986,8.986c4.963,0,8.986-4.022,8.986-8.986V44.923h27.496 v24.049c0,4.964,4.023,8.986,8.986,8.986c4.963,0,8.986-4.022,8.986-8.986V44.923h27.496v24.049c0,4.964,4.023,8.986,8.986,8.986 c4.963,0,8.986-4.022,8.986-8.986V44.923h27.496v24.049c0,4.964,4.023,8.986,8.986,8.986c4.963,0,8.986-4.022,8.986-8.986V44.923 h16.225c3.082,0,5.588,2.507,5.588,5.588V75.08c0,4.964,4.023,8.986,8.986,8.986c4.963,0,8.986-4.022,8.986-8.986V50.512v-0.235 C464.942,37.416,454.478,26.951,441.616,26.951z M446.967,435.411v53.265h0c0,2.951-2.401,5.352-5.353,5.352H388.35 C413.039,480.504,433.443,460.1,446.967,435.411z M370.633,416.723c27.252-1.649,53.114-11.708,74.199-28.615 c-4.667,25.486-16.884,48.964-35.529,67.716c-18.574,18.68-41.875,31.013-67.215,35.868 C359.11,470.396,369.16,444.248,370.633,416.723z"
+                          ></path>
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M416.168,151.687H97.891c-4.963,0-8.986,4.022-8.986,8.986s4.023,8.986,8.986,8.986h318.277 c4.963,0,8.986-4.022,8.986-8.986S421.131,151.687,416.168,151.687z"
+                          ></path>
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M416.168,192.544H97.891c-4.963,0-8.986,4.022-8.986,8.986s4.023,8.986,8.986,8.986h318.277 c4.963,0,8.986-4.022,8.986-8.986S421.131,192.544,416.168,192.544z"
+                          ></path>
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M416.168,233.401H97.891c-4.963,0-8.986,4.022-8.986,8.986c0,4.964,4.023,8.986,8.986,8.986h318.277 c4.963,0,8.986-4.022,8.986-8.986C425.155,237.423,421.131,233.401,416.168,233.401z"
+                          ></path>
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M416.168,274.257H97.891c-4.963,0-8.986,4.022-8.986,8.986c0,4.964,4.023,8.986,8.986,8.986h318.277 c4.963,0,8.986-4.022,8.986-8.986C425.155,278.28,421.131,274.257,416.168,274.257z"
+                          ></path>
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M416.168,315.114H97.891c-4.963,0-8.986,4.022-8.986,8.986c0,4.964,4.023,8.986,8.986,8.986h318.277 c4.963,0,8.986-4.022,8.986-8.986C425.155,319.136,421.131,315.114,416.168,315.114z"
+                          ></path>
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <circle cx="455.954" cy="110.361" r="9.792"></circle>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <span>Report</span>
+                </div>
+                <img
+                  src="img/admin-icons/down-arrow-white.png"
+                  alt="arrow down icon"
+                  class="carret"
+                />
+                <img
+                  src="img/admin-icons/arrow-down.png"
+                  alt="arrow down icon"
+                  class="carret-active"
+                />
+              </button>
+              <div class="report-menu">
+                <a href="admin-report-inventory.html">Inventory</a>
+                <a href="admin-report-borrowers-data.html">Borrowers Data</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="pull-sidemenu active">
+        <svg class="right" viewBox="0 0 24 24" fill="none" stroke="#ffffff">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <g id="Arrow / Chevron_Right">
+              <path
+                id="Vector"
+                d="M9 5L16 12L9 19"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </g>
+        </svg>
+        <svg
+          class="left"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#ffffff"
+          transform="rotate(180)"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <g id="Arrow / Chevron_Right">
+              <path
+                id="Vector"
+                d="M9 5L16 12L9 19"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </g>
+        </svg>
+      </button>
+      <div class="dashboard-main">
+        <div class="header">
+          <div class="left">
+            <h2>Transactions</h2>
+          </div>
+          <div class="right">
+            <button class="admin-dropdown">
+              <span>Admin</span>
+              <img src="img/down-arrow.png" alt="arrow icon" />
+            </button>
+            <div class="header-menu admin-menu hide">
+              <a href="index.html">Logout</a>
+            </div>
+          </div>
+        </div>
+        <div class="header header-2">
+          <div class="left admin-transact">
+            <button class="dashboard-dropdown page-transact">
+              <span>Reserved</span>
+              <img src="img/down-arrow.png" alt="arrow icon" />
+            </button>
+            <div class="header-menu dashboard-menu hide page-transact">
+              <a href="admin-transactions-borrowed.html">Borrow</a>
+              <a href="admin-transactions-reserved.html">Reserved</a>
+              <a href="admin-transactions-returned.html">Return</a>
+              <a href="admin-transactions-overdue.html">Overdue</a>
+            </div>
+            <!-- Search bar -->
+            <div class="search-bar">
+              <input type="text" class="search-bar" />
+              <button class="clear-search hidden">
+                <img src="img/close.png" alt="close icon" />
+              </button>
+              <button class="search">
+                <img src="img/search-icon.png" alt="search icon" />
+              </button>
+            </div>
+          </div>
+          <div class="right">
+            <div class="entries-dropdown admin-transact">
+              <label for="entries-per-page">Show</label>
+              <select id="entries-per-page">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <!-- Add more options as needed -->
+              </select>
+              <span>entries</span>
+            </div>
+            <!-- <button
+              class="dashboard-button add-book-btn"
+              onclick="showAddUserForm()"
+            >
+              <span>Add</span>
+              <img class="add" src="img/admin-icons/plus.png" alt="plus icon" />
+            </button> -->
+            <!-- <a href="admin-dashboard.html" class="dashboard-button back-button">
+              <img src="img/left-arrow.png" alt="arrow icon" />
+              <span>Back</span>
+            </a> -->
+          </div>
+        </div>
+        <div class="main-content table-content">
+          <!-- Table -->
+          <div class="table-content">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Student ID No.</th>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Accession Number</th>
+                  <th scope="col">Date Borrowed</th>
+                  <th scope="col">Due Date</th>
+                  <!-- <th scope="col">Action</th> -->
+                </tr>
+              </thead>
+              <tbody class="tbody">
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                  <!-- <td class="action-container">
+                    <a href="admin-edit-user.html" class="allow-user">Allow</a>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                </tr>
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                </tr>
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                </tr>
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                </tr>
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                </tr>
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                </tr>
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                </tr>
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                </tr>
+                <tr>
+                  <td>21-0167</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Simplified Physics</td>
+                  <td>02871</td>
+                  <td>05-09-23</td>
+                  <td>05-11-23</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Pagination -->
+          <div class="pagination-container">
+            <p class="page">
+              Page <span class="currentPage"> 1</span> of
+              <span class="totalPages">10</span>
+            </p>
+            <div class="pagination">
+              <button class="prev-btn">Prev</button>
+              <ul class="pagination-list"></ul>
+              <button class="next-btn">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="loader hide">
+      <img src="img/cube.svg" alt="cube icon" />
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      $(".loader").removeClass("hide");
+      function isMobile() {
+        // Get the screen width
+        const screenWidth =
+          window.innerWidth ||
+          document.documentElement.clientWidth ||
+          document.body.clientWidth;
+
+        // Check if the screen width is below 767 pixels (adjust this value as needed)
+        return screenWidth < 767;
+      }
+
+      if (isMobile()) {
+        $(".pull-sidemenu").removeClass("active");
+        $(".sidemenu").removeClass("active");
+        $(".dashboard-main").addClass("full-width");
+      }
+      setTimeout(() => {
+        $(".loader").addClass("hide");
+      }, 1000);
+
+      //  Update button
+      $(".update-form").on("click", function () {
+        swal({
+          title: "Update successful",
+          text: "You have successfully update.",
+          icon: "success",
+          button: "OK",
+        }).then((value) => {
+          //   location.reload();
+        });
+      });
+
+      // Search bar
+      $("input.search-bar").on("input", function () {
+        if ($(this).val() === "") {
+          $(this).parent().find(".clear-search").addClass("hidden");
+        } else {
+          $(this).parent().find(".clear-search").removeClass("hidden");
+        }
+      });
+      $(".clear-search").on("click", function () {
+        if ($(this).val() === "") {
+          $(this).prev().val("");
+          $(this).addClass("hidden");
+        }
+      });
+
+      // Table pagination
+      $(document).ready(function () {
+        let entriesPerPage = 5;
+        let currentPage = 1;
+
+        function showPage(pageNumber) {
+          const startIndex = (pageNumber - 1) * entriesPerPage;
+          const endIndex = startIndex + entriesPerPage;
+          $(".table tbody tr").hide().slice(startIndex, endIndex).show();
+        }
+
+        function updatePagination() {
+          const totalEntries = $(".table tbody tr").length;
+          const totalPages = Math.ceil(totalEntries / entriesPerPage);
+
+          $(".current-page").text(currentPage);
+          $(".total-pages").text(totalPages);
+
+          $(".currentPage").text(currentPage);
+          $(".totalPages").text(totalPages);
+
+          const $paginationList = $(".pagination-list");
+          $paginationList.empty();
+
+          for (let i = 1; i <= totalPages; i++) {
+            $paginationList.append(
+              `<li><button class="page-btn">${i}</button></li>`
+            );
+          }
+
+          $(".page-btn").click(function () {
+            currentPage = parseInt($(this).text());
+            showPage(currentPage);
+            updatePagination();
+          });
+
+          $(".prev-btn").prop("disabled", currentPage === 1);
+          $(".next-btn").prop("disabled", currentPage === totalPages);
+        }
+
+        function updateEntriesPerPage() {
+          entriesPerPage = parseInt($("#entries-per-page").val());
+          currentPage = 1;
+          showPage(currentPage);
+          updatePagination();
+        }
+
+        showPage(currentPage);
+        updatePagination();
+
+        $(".prev-btn").click(function () {
+          if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+            updatePagination();
+          }
+        });
+
+        $(".next-btn").click(function () {
+          const totalEntries = $(".table tbody tr").length;
+          const totalPages = Math.ceil(totalEntries / entriesPerPage);
+          if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+            updatePagination();
+          }
+        });
+
+        // Attach event listener for entries per page dropdown
+        $("#entries-per-page").change(function () {
+          updateEntriesPerPage();
+        });
+      });
+
+      // For deleting a book
+      $(document).on("click", "button.delete-book", function (event) {
+        swal({
+          title: "Are you sure?",
+          //   text: "Once deleted, you will not be able to recover this!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            swal("Announcement has been deleted!", {
+              icon: "success",
+            }).then((value) => {
+              setTimeout(() => {
+                location.reload();
+              }, 200);
+            });
+          }
+        });
+      });
+
+      // For adding book
+      function showAddUserForm() {
+        swal({
+          title: "Add New User",
+          content: {
+            element: "div",
+            attributes: {
+              innerHTML: `
+              <form action="#" class="update-announcement">
+              <div class="inputs">
+                <div class="full-col">
+                  <div class="form-item">
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="title" placeholder="" />
+                  </div>
+                </div>
+                <div class="half-col">
+                  <div class="form-item">
+                    <label for="callnumber">Last Name</label>
+                    <input type="text" id="gender" placeholder="" />
+                  </div>
+                  <div class="form-item">
+                    <label for="author"
+                      >M.I</label
+                    >
+                    <input
+                      type="text"
+                      id="mi"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="full-col">
+                  <div class="form-item">
+                    <label for="bookMajorGroup">Student ID No.</label>
+                    <input type="text" id="bookMajorGroup" placeholder="" />
+                  </div>
+                </div>
+                <div class="half-col">
+                  <div class="form-item">
+                    <label for="datereceived">Status</label>
+                    <select>
+                        <option>Active</option>
+                        <option>Inactive</option>
+                    </select>
+                  </div>
+                  <div class="form-item">
+                    <label for="class"
+                      >Password</label
+                    >
+                    <input
+                      type="text"
+                      id="bookClass"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="spacing"></div>
+                <div class="half-col">
+                  <div class="form-item">
+                    <label for="datereceived">Email Address</label>
+                    <input type="text" placeholder="" id="edition" />
+                  </div>
+                  <div class="form-item">
+                    <label for="class"
+                      >User Type</label
+                    >
+                    <select>
+                        <option>Student</option>
+                        <option>Student</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="half-col">
+                  <div class="form-item">
+                    <label for="pages">Contact Number</label>
+                    <input type="text" placeholder="" id="pages" />
+                  </div>
+                  <div class="form-item">
+                    <label for="class"
+                      >Course</label
+                    >
+                    <input
+                      type="text"
+                      placeholder=""
+                      id="fundSource"
+                    />
+                  </div>
+                </div>
+                <div class="full-col">
+                  <div class="form-item">
+                    <label for="remarks">Section</label>
+                    <input type="text" placeholder=""  id="remarks" />
+                  </div>
+                </div>
+              </div>
+            </form>
+              `,
+            },
+          },
+          buttons: {
+            submit: {
+              text: "Submit",
+              value: "submit",
+            },
+            cancel: "Cancel",
+          },
+        }).then((value) => {
+          const bookTitle = document.getElementById("title").value;
+          const bookCallNumber =
+            document.getElementById("bookCallNumber").value;
+          const bookAuthor = document.getElementById("bookAuthor").value;
+          const bookMajorGroup =
+            document.getElementById("bookMajorGroup").value;
+          const dateReceived = document.getElementById("dateReceived").value;
+          const bookClass = document.getElementById("bookClass").value;
+          const edition = document.getElementById("edition").value;
+          const volume = document.getElementById("volume").value;
+          const pages = document.getElementById("pages").value;
+          const fundSource = document.getElementById("fundSource").value;
+          const publisher = document.getElementById("publisher").value;
+          const yearPublished = document.getElementById("yearPublished").value;
+          const bookType = document.getElementById("bookType").value;
+          const bookLink = document.getElementById("bookLink").value;
+          const remarks = document.getElementById("remarks").value;
+          switch (value) {
+            case "submit":
+              if (
+                bookTitle !== "" &&
+                bookCallNumber !== "" &&
+                bookAuthor !== "" &&
+                bookMajorGroup !== "" &&
+                dateReceived !== "" &&
+                bookClass !== "" &&
+                edition !== "" &&
+                volume !== "" &&
+                pages !== "" &&
+                fundSource !== "" &&
+                publisher !== "" &&
+                yearPublished !== "" &&
+                bookType !== "" &&
+                bookLink !== "" &&
+                remarks !== ""
+              ) {
+                swal(
+                  "Success!",
+                  "Your book has been added successfully!",
+                  "success"
+                );
+                const bookContainer = document.querySelector(".table .tbody");
+                const bookItem = document.createElement("tr");
+                bookItem.innerHTML = `
+                  <td>1223434</td>
+                  <td>${bookCallNumber}</td>
+                  <td>${bookTitle}</td>
+                  <td>${bookAuthor}</td>
+                  <td>971-23-3455-4</td>
+                  <td>${publisher}</td>
+                  <td class="action-container">
+                    <button class="action">
+                      <span class="btn-el">Action</span> |
+                      <img
+                        class="btn-image"
+                        src="img/down-arrow.png"
+                        alt="down arrow icon"
+                      />
+                    </button>
+                    <div class="actions">
+                      <ul>
+                        <li>
+                          <a href="admin-edit-book.html" class="update-book">Update</a>
+                        </li>
+                        <li>
+                          <button class="delete-book">Delete</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>`;
+                bookContainer.append(bookItem);
+                setTimeout(() => {
+                  location.reload();
+                }, 3000);
+              } else {
+                swal(
+                  "Error!",
+                  "Please fill up the required field before submitting",
+                  "error"
+                );
+                return;
+              }
+              break;
+
+            default:
+              console.log("");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

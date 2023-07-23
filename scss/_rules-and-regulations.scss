@@ -1,0 +1,80 @@
+.rules-section {
+  margin-bottom: 100px;
+  .section-title {
+    display: flex;
+    align-items: center;
+    color: $dark-color;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    column-gap: 15px;
+    margin-top: 30px;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 5px;
+    }
+  }
+
+  h3 {
+    color: $dark-color;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    position: relative;
+    width: max-content;
+  }
+
+  h3::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: $primary-color;
+    width: 50%;
+    border-radius: 10px;
+    left: 0;
+    bottom: -4px;
+  }
+
+  .rules__content {
+    margin-top: 30px;
+
+    .body {
+      margin-top: 12px;
+      p {
+        color: $dark-color;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .rules-item {
+        p {
+          margin-bottom: 8px;
+        }
+        ul {
+          padding: 0;
+          margin: 0;
+          list-style-type: none;
+
+          li:not(:last-child) {
+            margin-bottom: 6px;
+          }
+        }
+      }
+
+      .rules-item:not(:last-child) {
+        margin-bottom: 26px;
+      }
+      .rules-item.first {
+        margin-top: 26px;
+      }
+    }
+  }
+}
