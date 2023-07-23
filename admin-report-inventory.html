@@ -613,7 +613,7 @@
         </div>
       </div>
     </div>
-    <div class="loader hide">
+    <div class="loader">
       <img src="img/cube.svg" alt="cube icon" />
     </div>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -621,7 +621,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/script.js"></script>
     <script>
-      $(".loader").removeClass("hide");
+      // $(".loader").removeClass("hide");
       function isMobile() {
         // Get the screen width
         const screenWidth =
@@ -640,7 +640,7 @@
       }
       setTimeout(() => {
         $(".loader").addClass("hide");
-      }, 1000);
+      }, 1500);
 
       //  Update button
       $(".update-form").on("click", function () {
@@ -744,8 +744,10 @@
       });
 
       // Print report
-      $(".print-btn").on("click", function () {
-        window.print();
+      $(document).ready(function () {
+        $(".print-btn").on("click", function () {
+          window.print();
+        });
       });
     </script>
   </body>

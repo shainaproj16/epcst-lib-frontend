@@ -575,7 +575,7 @@ EPCST Library maintains cm open-shelf system in order that the boobs will be mor
         </div>
       </div>
     </div>
-    <div class="loader hide">
+    <div class="loader">
       <img src="img/cube.svg" alt="cube icon" />
     </div>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -583,7 +583,7 @@ EPCST Library maintains cm open-shelf system in order that the boobs will be mor
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/script.js"></script>
     <script>
-      $(".loader").removeClass("hide");
+      // $(".loader").removeClass("hide");
       function isMobile() {
         // Get the screen width
         const screenWidth =
@@ -602,7 +602,7 @@ EPCST Library maintains cm open-shelf system in order that the boobs will be mor
       }
       setTimeout(() => {
         $(".loader").addClass("hide");
-      }, 1000);
+      }, 1500);
 
       //  Update button
       $(".update-form").on("click", function () {
